@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prospect{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+<div class="row mt-5">
+    <div class="col-sm-6 mt-5">
+        {{ form_row(form.nom ,{'attr':{'class':"form-control form-control-sm"}}) }}
+    </div>
+    <div class="col-sm-6 mt-5">
+
+        {{ form_row(form.prenom ,{'label':'Prénom ','attr':{'class':"form-control form-control-sm"}}) }}
+    </div>
+    <div class="col-sm-6">
+        {{ form_row(form.email ,{'label':'Adresse E-mail ','attr':{'class':"form-control form-control-sm"}}) }}
+    </div>
+    <div class="col-sm-6">
+        {{ form_row(form.telephone ,{'label':'Numéro de téléphone ','attr':{'class':"form-control form-control-sm",'minlength':'10','maxlength':'10'}}) }}
+    </div>
+    <div class="col-sm-12">
+        {{ form_row(form.remarque ,{'label':'Remarques ','attr':{'class':"form-control form-control-sm"}}) }}
+    </div>
+    <div class="col-sm-12 mt-3 text-center">
+        <button class="btn-outline-primary btn btn-lg" type="submit">Valider</button>
+    </div>
+</div>
+    {{ form_end(form) }}
+    <div class="table-responsive mt-5">
+        <table class="table">
+           <tr>
+               <td>Nom</td>
+               <td>Prénom</td>
+               <td>Email</td>
+               <td>Téléphone</td>
+               <td>Remarques</td>
+               <td>Date inscription</td>
+           </tr>
+            {% for prospect in prospects %}
+                <tr>
+                    <td>{{ prospect.nom }}</td>
+                    <td>{{ prospect.prenom }}</td>
+                    <td>{{ prospect.email }}</td>
+                    <td>{{ prospect.telephone }}</td>
+                    <td>{{ prospect.remarque }}</td>
+                    <td>{{ prospect.date|format_datetime('short', 'none', locale='fr') }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

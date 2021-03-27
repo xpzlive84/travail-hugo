@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historique des inscriptions{% endblock %}
+{% block body %}
+    <div class="row mt-5">
+        <div class="col-sm-3 text-right mt-5">
+            <button class="btn btn-primary precedent">Précédent</button>
+        </div>
+        <div class="col-sm-6  mt-5 text-center">
+            <span class="h4 mois"></span>
+        </div>
+        <div class="col-sm-3 mt-5">
+            <button class="btn btn-primary suivant">Suivant</button>
+        </div>
+    </div>
+
+    <div class="table-responsive mt-5">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Remarques</th>
+            <th>Date inscription</th>
+        </tr>
+        </thead>
+
+        <tbody></tbody>
+    </table>
+
+
+{% endblock %}
